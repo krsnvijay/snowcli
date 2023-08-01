@@ -57,7 +57,7 @@ def package_lookup(
         if install_packages:
             packages_string = None
             status, results = utils.install_packages(
-                perform_anaconda_check=True, package_name=name, file_name=None
+                perform_anaconda_check=False, package_name=name, file_name=None
             )
             if status and results is not None and len(results.snowflake) > 0:
                 packages_string = f"The package {name} is supported, but does depend on the following Snowflake supported native libraries. You should include the following in your packages: {results.snowflake}"
